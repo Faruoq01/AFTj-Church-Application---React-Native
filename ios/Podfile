@@ -1,0 +1,60 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+target 'AFTjchurch' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+  pod 'react-native-blur', :path => '../node_modules/@react-native-community/blur'
+
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+
+  pod 'RNCCheckbox', :path => '../node_modules/@react-native-community/checkbox'
+
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
+
+  pod 'react-native-fbsdk-next', :path => '../node_modules/react-native-fbsdk-next'
+
+  pod 'RNGoogleSignin', :path => '../node_modules/@react-native-google-signin/google-signin'
+
+  pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
+
+  pod 'react-native-track-player', :path => '../node_modules/react-native-track-player'
+
+  pod 'RNPaypal', :path => '../node_modules/react-native-paypal'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  target 'AFTjchurchTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+
+target 'AFTjchurch-tvOS' do
+  # Pods for AFTjchurch-tvOS
+
+  target 'AFTjchurch-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
